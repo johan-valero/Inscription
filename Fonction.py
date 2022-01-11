@@ -1,3 +1,4 @@
+import csv
 #Catégorie d'un inscrit vis à vis de son age
 
 def categories(annee):
@@ -22,3 +23,17 @@ def email(nom,prenom):
     nom = nom.lower()
     mail = str(prenom[0]+"."+nom+"@baton-rouge.fr")
     return mail
+
+#fichier creation d'un csv
+
+def create_csv(fichier,liste_nouveaux):
+    with open(fichier, "w", newline="") as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter="\n")
+        for i in liste_nouveaux:
+            spamwriter.writerow(i)
+            print("Enregistrment N°",i)
+
+# def read_csv(fichier):
+#     with open(fichier, "r")as f:
+#         for line in f:
+#             print(line)

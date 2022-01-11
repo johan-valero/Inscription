@@ -1,6 +1,9 @@
 # Partie 3 : inscription.py V3 (fichiers, bibliothèques)
 
+from datetime import date
 from Fonction import email, categories
+from Fonction import create_csv
+
 
 # Gestioin des erreurs : sur le nombre d'inscrit
 
@@ -54,3 +57,7 @@ for i in enumerate(liste_nouveaux):
     print("===========")
     print(i)
 
+#creation fichier csv
+
+date_ = str(date.today())
+create_csv("inscrits-"+ date_ +".csv", liste_nouveaux)
