@@ -18,5 +18,7 @@ def categories(annee):
 #adresse mail automatique
 
 def email(nom,prenom):
+    prenom = prenom.upper()
+    nom = nom.lower()
     mail = str(prenom[0]+"."+nom+"@baton-rouge.fr")
     return mail
