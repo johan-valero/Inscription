@@ -7,7 +7,7 @@ print("Bienvenue sur le programme d'enregistrement des joueurs de Poudlard")
 print("===================================================================")
 
 
-# Gestioin des erreurs : sur le nombre d'inscrit
+# Gestion des erreurs : sur le nombre d'inscrit
 
 while True:
     try:
@@ -16,16 +16,14 @@ while True:
     except ValueError:
         print("Veuillez saisir un nombre sous forme de chiffres")
 
-
-
 liste_nouveaux = []
 
 for i in range(nbr_inscrit):
-    
+
     nom = str(input("Veuillez renseigner le nom ? \n"))
     prenom = str(input("Veuillez renseigner le prénom ? \n"))
 
-#Gestioin des erreurs : sur l'année de naissance
+#Gestion des erreurs : sur l'année de naissance
 
     while True:
             try:
