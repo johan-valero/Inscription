@@ -45,6 +45,7 @@ for i in range(nbr_inscrit):
 
     adresse_email = email(nom, prenom)
     categorie = categories(annee)
+    
     if categorie != "Non-admis":
         liste_nouveaux.append([prenom, nom, adresse_email, categorie])
     else:
