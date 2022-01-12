@@ -31,9 +31,3 @@ def create_csv(fichier,liste_nouveaux):
         spamwriter = csv.writer(csvfile, delimiter="\n")
         for i in liste_nouveaux:
             spamwriter.writerow(i)
-            print("Enregistrment N°",i)
-
-# def read_csv(fichier):
-#     with open(fichier, "r")as f:
-#         for line in f:
-#             print(line)
