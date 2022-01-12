@@ -21,24 +21,9 @@ while True:
 liste_nouveaux = []
 
 for i in range(nbr_inscrit):
-
-#Gestioin des erreurs : sur le nom
-
-    while True:
-                try:
-                    nom = str(input("Veuillez renseigner le nom ? \n"))
-                    break
-                except ValueError:
-                    print("Veuillez renseigner le nom en lettres")
-
-#Gestioin des erreurs : sur le prénom
-
-    while True:
-                try:
-                    prenom = str(input("Veuillez renseigner le prénom ? \n"))
-                    break
-                except ValueError:
-                    print("Veuillez renseigner le prénom en lettres")
+    
+    nom = str(input("Veuillez renseigner le nom ? \n"))
+    prenom = str(input("Veuillez renseigner le prénom ? \n"))
 
 #Gestioin des erreurs : sur l'année de naissance
 
