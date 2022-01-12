@@ -34,7 +34,7 @@ def inscription():
   liste_nouveaux.append([prenom, nom, adresse_email, categorie])
 
   while True:
-    nouveau = input("Faire un autre enregistrment ? Oui : (o) - Non : (n) \n")
+    nouveau = input("Faire un autre enregistrement ? Oui : (o) - Non : (n) \n")
     if nouveau == "n":
       break
     elif nouveau == "o":
@@ -44,7 +44,7 @@ def inscription():
 
 inscription()
 print("=======================")
-print("Liste des inscriptions")
+print("Liste des inscrits")
 print("=======================")
 for i in enumerate(liste_nouveaux):
     print(i)

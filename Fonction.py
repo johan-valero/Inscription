@@ -1,6 +1,5 @@
 import csv
 
-
 #Catégorie d'un inscrit vis à vis de son age
 
 def categories(annee):
@@ -17,7 +16,7 @@ def categories(annee):
         return "Pro"
     else:
         print(" Non-admis")
-
+        
 #adresse mail automatique
 
 def email(nom,prenom):

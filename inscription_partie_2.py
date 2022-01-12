@@ -41,7 +41,7 @@ for i in range(nbr_inscrit):
                 print("Veuillez renseigner une année de naissance valide")
 
 
-#Liste des inscriptions
+#Liste des inscrits
 
     adresse_email = email(nom, prenom)
     categorie = categories(annee)
@@ -49,7 +49,7 @@ for i in range(nbr_inscrit):
 
 
 print("=======================")
-print("Liste des inscriptions")
+print("Liste des inscrits")
 print("=======================")
 for i in enumerate(liste_nouveaux):
     print(i)
