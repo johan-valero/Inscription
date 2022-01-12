@@ -45,7 +45,11 @@ for i in range(nbr_inscrit):
 
     adresse_email = email(nom, prenom)
     categorie = categories(annee)
-    liste_nouveaux.append([prenom, nom, adresse_email, categorie])
+    if categorie != "Non-admis":
+        liste_nouveaux.append([prenom, nom, adresse_email, categorie])
+    else:
+      print("Ce profil n'est pas admissible")
+
 
 
 print("=======================")

@@ -11,8 +11,8 @@ print("===================================================================")
 liste_nouveaux = []
 
 def inscription():
-  nom = str(input("Veuillez renseigner le nom ? \n"))
-  prenom = str(input("Veuillez renseigner le prénom ? \n"))
+  nom = input("Veuillez renseigner le nom ? \n")
+  prenom = input("Veuillez renseigner le prénom ? \n")
 
   while True:
     try:
@@ -31,7 +31,11 @@ def inscription():
   
   adresse_email = email(nom, prenom)
   categorie = categories(annee)
-  liste_nouveaux.append([prenom, nom, adresse_email, categorie])
+
+  if categorie != "Non-admis":
+    liste_nouveaux.append([prenom, nom, adresse_email, categorie])
+  else:
+      print("Ce profil n'est pas admissible")
 
   while True:
     nouveau = input("Faire un autre enregistrement ? Oui : (o) - Non : (n) \n")

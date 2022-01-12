@@ -15,8 +15,9 @@ def categories(annee):
     elif 30 <= age <= 40:
         return "Pro"
     else:
-        print(" Non-admis")
-        
+        return("Non-admis")
+    
+       
 #adresse mail automatique
 
 def email(nom,prenom):

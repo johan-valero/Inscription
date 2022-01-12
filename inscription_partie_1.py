@@ -6,16 +6,33 @@ print("===================================================================")
 print("Bienvenue sur le programme d'enregistrement des joueurs de Poudlard")
 print("===================================================================")
 
-nom = input("Veuillez renseigner le nom ? \n")
-prenom = input("Veuillez renseigner le prénom ? \n")
-annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
-categorie = categories(annee)
-adresse_email = email(nom, prenom)
+def donnee():
+    nom = input("Veuillez renseigner le nom ? \n")
+    prenom = input("Veuillez renseigner le prénom ? \n")
+    annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
+    categorie = categories(annee)
+    adresse_email = email(nom, prenom)
 
-print("===========")
-print("INSCRIPTION")
-print("===========")
-print("Prénom :", prenom)
-print("Nom :", nom)
-print("Email :", adresse_email)
-print("Catégorie :", categorie)
+
+    if categorie != "Non-admis":
+
+        print("===========")
+        print("INSCRIPTION")
+        print("===========")
+        print("Prénom :", prenom)
+        print("Nom :", nom)
+        print("Email :", adresse_email)
+        print("Catégorie :", categorie)
+        
+    else:
+        print("Ce profil n'est pas admissible")
+        while True:
+            enregistrer = input("Faire un autre enregistrement ? Oui : (o) - Non : (n) \n")
+            if enregistrer == "n":
+                break
+            elif enregistrer == "o":
+                donnee()
+            else:
+                print("Veuillez saisir o ou n ") 
+        
+donnee()
