@@ -8,65 +8,41 @@ print("===================================================================")
 print("Bienvenue sur le programme d'enregistrement des joueurs de Poudlard")
 print("===================================================================")
 
-
-# Gestioin des erreurs : sur le nombre d'inscrit
-
-while True:
-    try:
-        nbr_inscrit = int(input("Indiquez le nombre de personnes à inscrire \n"))
-        break
-    except ValueError:
-        print("Veuillez saisir un nombre sous forme de chiffres")
-
-
-
 liste_nouveaux = []
 
-for i in range(nbr_inscrit):
+def inscription():
+  nom = str(input("Veuillez renseigner le nom ? \n"))
+  prenom = str(input("Veuillez renseigner le prénom ? \n"))
 
-#Gestioin des erreurs : sur le nom
+  while True:
+    try:
+      annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
 
-    while True:
-                try:
-                    nom = str(input("Veuillez renseigner le nom ? \n"))
-                    break
-                except ValueError:
-                    print("Veuillez renseigner le nom en lettres")
+    except ValueError:
+      print("Veuillez renseigner l'année de naissance en chiffres")
 
-#Gestioin des erreurs : sur le prénom
+    if len(str(annee)) != 4:
+      print("Votre année de naissance doit comporter 4 chiffres")   
 
-    while True:
-                try:
-                    prenom = str(input("Veuillez renseigner le prénom ? \n"))
-                    break
-                except ValueError:
-                    print("Veuillez renseigner le prénom en lettres")
+    if 1930 <= annee <= 2022:
+      break
+    else:
+      print("Veuillez renseigner une année de naissance valide")
+  
+  adresse_email = email(nom, prenom)
+  categorie = categories(annee)
+  liste_nouveaux.append([prenom, nom, adresse_email, categorie])
 
-#Gestioin des erreurs : sur l'année de naissance
+  while True:
+    nouveau = input("Faire un autre enregistrment ? Oui : (o) - Non : (n) \n")
+    if nouveau == "n":
+      break
+    elif nouveau == "o":
+      return inscription()
+    else:
+      print("Veuillez saisir o ou n ")
 
-    while True:
-            try:
-                annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
-
-            except ValueError:
-                print("Veuillez renseigner l'année de naissance en chiffres")
-
-            if len(str(annee)) != 4:
-                print("Votre année de naissance doit comporter 4 chiffres")   
-
-            if 1930 <= annee <= 2022:
-                break
-            else:
-                print("Veuillez renseigner une année de naissance valide")
-
-
-#Liste des inscriptions
-
-adresse_email = email(nom, prenom)
-categorie = categories(annee)
-liste_nouveaux.append([prenom, nom, adresse_email, categorie])
-
-
+inscription()
 print("=======================")
 print("Liste des inscriptions")
 print("=======================")
