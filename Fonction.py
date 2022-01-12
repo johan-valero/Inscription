@@ -1,4 +1,6 @@
 import csv
+
+
 #Catégorie d'un inscrit vis à vis de son age
 
 def categories(annee):
@@ -28,6 +30,7 @@ def email(nom,prenom):
 
 def create_csv(fichier,liste_nouveaux):
     with open(fichier, "w", newline="") as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter="\n")
+        spamwriter = csv.writer(csvfile, delimiter=" ")
         for i in liste_nouveaux:
             spamwriter.writerow(i)
+

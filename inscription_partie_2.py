@@ -63,7 +63,7 @@ for i in range(nbr_inscrit):
     adresse_email = email(nom, prenom)
     categorie = categories(annee)
     liste_nouveaux.append([prenom, nom, adresse_email, categorie])
-    print("Nouvel enregistrement")
+
 
 print("=======================")
 print("Liste des inscriptions")
