@@ -12,6 +12,7 @@ annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
 categorie = categories(annee)
 adresse_email = email(nom, prenom)
 
+print("===========")
 print("INSCRIPTION")
 print("===========")
 print("Prénom :", prenom)
