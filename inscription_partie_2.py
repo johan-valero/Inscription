@@ -1,6 +1,6 @@
 # Partie 2 : inscription.py V2 (prérequis : logique conditionnelle, opérations logiques, exceptions)
 
-from Fonction import email, categories
+from Fonction import email, categories, lire_annee
 
 print("===================================================================")
 print("Bienvenue sur le programme d'enregistrement des joueurs de Poudlard")
@@ -22,27 +22,7 @@ for i in range(nbr_inscrit):
 
     nom = str(input("Veuillez renseigner le nom ? \n"))
     prenom = str(input("Veuillez renseigner le prénom ? \n"))
-
-#Gestion des erreurs : sur l'année de naissance
-
-    while True:
-            try:
-                annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
-
-            except ValueError:
-                print("Veuillez renseigner l'année de naissance en chiffres")
-
-            if len(str(annee)) != 4:
-                print("Votre année de naissance doit comporter 4 chiffres")   
-
-            if 1930 <= annee <= 2022:
-                break
-            else:
-                print("Veuillez renseigner une année de naissance valide")
-
-
-#Liste des inscrits
-
+    annee = lire_annee()
     adresse_email = email(nom, prenom)
     categorie = categories(annee)
     
