@@ -28,8 +28,11 @@ def donnee():
         print("Ce profil n'est pas admissible")
         while True:
             enregistrer = input("Faire un autre enregistrement ? Oui : (o) - Non : (n) \n")
+            print("réponse :", enregistrer)
             if enregistrer == "n":
+                print("non")
                 break
+                print("oui")
             elif enregistrer == "o":
                 return donnee()
             else:
