@@ -1,56 +1,30 @@
-# Partie 4 : divisions.py V1
-
-from datetime import date
-from Fonction import email, categories
+import os
+import csv
 from Fonction import create_csv
 
-print("===================================================================")
-print("Bienvenue sur le programme d'enregistrement des joueurs de Poudlard")
-print("===================================================================")
+chemin_de_base = "./inscriptions/"
+noms_fichiers = os.listdir(chemin_de_base)
+total_inscrits = []
+total_inscrits_par_categorie = {}
 
-liste_nouveaux = []
+for nom_fichier in noms_fichiers:
+  if (os.path.isfile(chemin_de_base + nom_fichier)):
+    csvfile = open(chemin_de_base + nom_fichier, "r", newline="")
+    spamreader = csv.reader(csvfile, delimiter=" ")
 
-def inscription():
-  nom = str(input("Veuillez renseigner le nom ? \n"))
-  prenom = str(input("Veuillez renseigner le prénom ? \n"))
+    for row in spamreader:
+      if row not in total_inscrits:
+        total_inscrits.append(row)
 
-  while True:
-    try:
-      annee = int(input("Veuillez renseigner l'année de naissance ? \n"))
+for inscrit in total_inscrits:
+  categorie = inscrit[-1]
 
-    except ValueError:
-      print("Veuillez renseigner l'année de naissance en chiffres")
-
-    if len(str(annee)) != 4:
-      print("Votre année de naissance doit comporter 4 chiffres")   
-
-    if 1930 <= annee <= 2022:
-      break
-    else:
-      print("Veuillez renseigner une année de naissance valide")
+  if not categorie in total_inscrits_par_categorie:
+    total_inscrits_par_categorie[categorie] = []
   
-  adresse_email = email(nom, prenom)
-  categorie = categories(annee)
-  liste_nouveaux.append([prenom, nom, adresse_email, categorie])
+  total_inscrits_par_categorie[categorie].append(inscrit)
 
-  while True:
-    nouveau = input("Faire un autre enregistrment ? Oui : (o) - Non : (n) \n")
-    if nouveau == "n":
-      break
-    elif nouveau == "o":
-      return inscription()
-    else:
-      print("Veuillez saisir o ou n ")
+for categorie in total_inscrits_par_categorie:
+  print(categorie, ":", str(len(total_inscrits_par_categorie[categorie])), "inscrits")
 
-inscription()
-print("=======================")
-print("Liste des inscriptions")
-print("=======================")
-for i in enumerate(liste_nouveaux):
-    print(i)
-
-
-#creation fichier csv
-
-date_ = str(date.today())
-create_csv("inscrits-"+ date_ +".csv", liste_nouveaux)
+create_csv("./inscrits_total.csv", total_inscrits, "w")
