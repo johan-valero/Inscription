@@ -42,4 +42,4 @@ for i in enumerate(liste_nouveaux):
 #creation fichier csv
 
 date_ = str(date.today())
-create_csv("inscrits-"+ date_ +".csv", liste_nouveaux)
+create_csv("inscriptions/inscrits-"+ date_ +".csv", liste_nouveaux)
