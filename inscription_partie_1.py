@@ -31,7 +31,7 @@ def donnee():
             if enregistrer == "n":
                 break
             elif enregistrer == "o":
-                donnee()
+                return donnee()
             else:
                 print("Veuillez saisir o ou n ") 
         
